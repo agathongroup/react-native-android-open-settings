@@ -24,6 +24,30 @@ public class AndroidOpenSettings extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void tflCastSettings() {
+      Intent intenta = new Intent(Settings.ACTION_CAST_SETTINGS);
+      intenta.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      intenta.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+      if (intenta.resolveActivity(reactContext.getPackageManager()) != null) {
+          reactContext.startActivity(intenta);
+      } else {
+        Intent intentb = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+        intentb.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intentb.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        if (intentb.resolveActivity(reactContext.getPackageManager()) != null) {
+            reactContext.startActivity(intentb);
+        } else {
+          Intent intentc = new Intent(Settings.ACTION_SETTINGS);
+          intentc.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+          intentc.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+          if (intentc.resolveActivity(reactContext.getPackageManager()) != null) {
+            reactContext.startActivity(intentc);
+          }
+        }
+      }
+    }
+
+    @ReactMethod
     public void generalSettings() {
         Intent intent = new Intent(Settings.ACTION_SETTINGS);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -97,6 +121,16 @@ public class AndroidOpenSettings extends ReactContextBaseJavaModule {
     @ReactMethod
     public void bluetoothSettings() {
         Intent intent = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        if (intent.resolveActivity(reactContext.getPackageManager()) != null) {
+            reactContext.startActivity(intent);
+        }
+    }
+
+    @ReactMethod
+    public void castSettings() {
+        Intent intent = new Intent(Settings.ACTION_CAST_SETTINGS);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         if (intent.resolveActivity(reactContext.getPackageManager()) != null) {

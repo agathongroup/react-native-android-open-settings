@@ -2,6 +2,8 @@
 
 Open android settings from your react native app
 
+This repository has been forked to allow for the opening of Google Cast Menu, and to conditionally open Bluetooh or General Settings menus if/when the Cast menu is not available.
+
 ## Install
 Using npm
 
@@ -62,6 +64,9 @@ react-native link react-native-android-open-settings
 
 import AndroidOpenSettings from 'react-native-android-open-settings'
 
+// Open the Casting Menu, with fallbacks
+AndroidOpenSettings.tflCastSettings()
+
 // Open general settings menu
 AndroidOpenSettings.generalSettings()
 
@@ -85,6 +90,9 @@ AndroidOpenSettings.apnSettings()
 
 // Open bluetooth settings menu
 AndroidOpenSettings.bluetoothSettings()
+
+// Open Cast settings menu
+AndroidOpenSettings.castSettings()
 
 // Open date settings menu
 AndroidOpenSettings.dateSettings()

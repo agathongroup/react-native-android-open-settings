@@ -18,6 +18,10 @@ const apnSettings = () => RNAndroidOpenSettings.apnSettings()
 
 const bluetoothSettings = () => RNAndroidOpenSettings.bluetoothSettings()
 
+const castSettings = () => RNAndroidOpenSettings.castSettings()
+
+const tflCastSettings = () => RNAndroidOpenSettings.tflCastSettings()
+
 const dateSettings = () => RNAndroidOpenSettings.dateSettings()
 
 const localeSettings = () => RNAndroidOpenSettings.localeSettings()
@@ -47,6 +51,8 @@ module.exports = {
   airplaneModeSettings,
   apnSettings,
   bluetoothSettings,
+  castSettings,
+  tflCastSettings,
   dateSettings,
   localeSettings,
   inputMethodSettings,
